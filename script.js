@@ -33,7 +33,7 @@ fetch('bibleSchedule.json')
       if (element) {
     // 기존 텍스트 대신 새로운 링크 a 태그 추가
     const a = document.createElement('a');
-    a.href = `gpf.kr/48004001`;  // 또는 entry.link 처럼 동적값 가능
+    a.href = `https://gpf.kr/48004001`;  // 또는 entry.link 처럼 동적값 가능
     a.textContent = entry.verse;
     element.appendChild(a);
   }
