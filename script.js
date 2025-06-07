@@ -37,8 +37,17 @@ fetch('bibleSchedule.json')
     a.textContent = entry.verse;
     a.addEventListener('click', (e) => {
       e.preventDefault();       // 기본 이동 동작 차단
-      window.location.href = entry.link;
+       // iframe을 만들어 앱 링크 실행 시도
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = entry.link; // 앱 링크
+      document.body.appendChild(iframe);
+      // 1~2초 뒤 iframe 제거 (cleanup)
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 2000);
     });
+
     element.appendChild(a);
   }
     });
