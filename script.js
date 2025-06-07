@@ -33,8 +33,9 @@ fetch('bibleSchedule.json')
       if (element) {
     // 기존 텍스트 대신 새로운 링크 a 태그 추가
     const a = document.createElement('a');
-    a.href = `https://gpf.kr/48004001`;  // 또는 entry.link 처럼 동적값 가능
+    a.href = entry.link;  // 또는 entry.link 처럼 동적값 가능
     a.textContent = entry.verse;
+    a.target = "_brank";
     element.appendChild(a);
   }
     });
@@ -74,8 +75,3 @@ document.addEventListener("DOMContentLoaded", async function () {
       console.error("JSON 데이터를 불러오는 중 오류 발생:", error);
   }
 });
-
-const a = document.createElement('a');
-const li = document.getElementById('weekWord2');
-a.href = 'godpeoplebibleapps://words/9010';
-li.appendChild(a);
