@@ -33,9 +33,12 @@ fetch('bibleSchedule.json')
       if (element) {
     // 기존 텍스트 대신 새로운 링크 a 태그 추가
     const a = document.createElement('a');
-    a.href = entry.link;  // 또는 entry.link 처럼 동적값 가능
+    a.href = "#";  // 또는 entry.link 처럼 동적값 가능
     a.textContent = entry.verse;
-    a.target = "_brank";
+    a.addEventListener('click', (e) => {
+      e.preventDefault();       // 기본 이동 동작 차단
+      window.location.href = entry.link;
+    });
     element.appendChild(a);
   }
     });
